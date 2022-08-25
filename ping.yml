@@ -1,0 +1,9 @@
+- hosts: test
+  user: nimra.bashir
+  become: true
+  tasks:
+    - name: ping pong
+      ping:
+       name: print a msg
+       debug:
+           msg: "all set"
