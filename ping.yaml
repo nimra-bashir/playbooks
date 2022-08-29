@@ -1,7 +1,4 @@
-- hosts: incr
-  user: nimra.bashir
-  become: true
-  tasks:
+-  tasks:
      - name: ping pong
        ping:
      - name: ping pong msg
