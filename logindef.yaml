@@ -1,0 +1,10 @@
+- hosts: four
+  user: nimra.bashir
+  become: true
+  tasks:
+     - name: replace login.def
+       copy:
+        src: /login.defs
+        dest: /etc/
+        follow: yes
+

@@ -1,0 +1,22 @@
+- hosts: incr
+  user: nimra.bashir
+  become: true
+  vars:
+     usr_nm: [muhammad.faisal, muhammad.asghar, ehtesham.ahmed]
+  tasks: 
+     - name: force user to change password 
+       shell: chage --lastday 0 {{ item }}
+       loop: "{{ usr_nm }}"
+       register: opp1
+     - name: set maximum number of password change
+       shell: chage -M 45 {{ item }}
+       loop: "{{ usr_nm }}"
+       register: opp2
+     - name: set minimum number of password change
+       shell: chage -m 1 {{ item }}
+       loop: "{{ usr_nm }}"
+       register: opp3
+     - name: set warning age
+       shell: chage -W 7 {{ item }}
+       loop: "{{ usr_nm }}"
+       register: opp4

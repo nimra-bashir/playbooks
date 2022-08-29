@@ -1,0 +1,9 @@
+- hosts: all
+  user: nimra.bashir
+  become: true
+  tasks: 
+     - name: check os-release
+       shell: cat /etc/os-release
+       register: osop
+     - debug:
+         var: osop.stdout_lines
